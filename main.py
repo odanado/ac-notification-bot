@@ -28,7 +28,7 @@ def format_result(result):
 
 
 @click.command()
-@click.option('--users', type=str, envvar='users')
+@click.option('--users', type=str, envvar='USERS')
 @click.option('--webhook', envvar='WEBHOOK')
 @click.option('--threshold', type=int, envvar='THRESHOLD')
 def cmd(webhook, users, threshold):
