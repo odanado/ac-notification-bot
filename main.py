@@ -28,12 +28,12 @@ def format_result(result):
 
 
 @click.command()
-@click.argument('users_file', type=str)
+@click.option('--users', type=str, envvar='users')
 @click.option('--webhook', envvar='WEBHOOK')
-@click.option('--threshold', type=int, default=10*60)
-def cmd(webhook, users_file, threshold):
+@click.option('--threshold', type=int, envvar='THRESHOLD')
+def cmd(webhook, users, threshold):
     slack = slackweb.Slack(url=webhook)
-    users = [line.strip() for line in open(users_file)]
+    users = users.split(',')
     threshold = time.time() - threshold
     results = fetch_new_ac(users, threshold)
 
