@@ -32,6 +32,10 @@ def format_result(result):
 @click.option('--webhook', envvar='WEBHOOK')
 @click.option('--threshold', type=int, envvar='THRESHOLD')
 def cmd(webhook, users, threshold):
+    logger.info('users: ' + users)
+    logger.info('webhook: ' + webhook)
+    logger.info('threshold: ' + str(threshold))
+
     slack = slackweb.Slack(url=webhook)
     users = users.split(',')
     threshold = time.time() - threshold
