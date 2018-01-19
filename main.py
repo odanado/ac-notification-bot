@@ -40,7 +40,7 @@ def cmd(webhook, users_file, threshold):
     for result in results:
         text = format_result(result)
         logger.info('notice: ' + text)
-        slack.notify(text=text, icon_emoji=':ac:')
+        slack.notify(text=text, username='AC bot', icon_emoji=':ac:')
 
 
 def main():
