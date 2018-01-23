@@ -21,8 +21,9 @@ def fetch_new_ac(users, threshold):
 
 
 def format_result(result):
-    url = ('https://beta.atcoder.jp/contests/'
-           '{0[contest_id]}/tasks/{0[problem_id]}').format(result)
+    url = ('<https://beta.atcoder.jp/contests/'
+           '{0[contest_id]}/tasks/'
+           '{0[problem_id]}|{0[problem_id]}>').format(result)
     text = ('{0[user_id]} が {1} を{0[language]} でACしたよ！'.format(result, url))
     return text
 
